@@ -1,3 +1,5 @@
+const https = require('https');
+
 module.exports = async (req, res) => {
   if (req.method !== 'POST') {
     return res.status(405).json({ success: false, message: 'Method not allowed' });
@@ -11,23 +13,56 @@ module.exports = async (req, res) => {
       return res.status(500).json({ success: false, message: 'ACCESS_KEY environment variable is not configured on Vercel.' });
     }
 
-    const response = await fetch('https://api.web3forms.com/submit', {
+    const payload = JSON.stringify({
+      access_key,
+      name,
+      email,
+      message,
+      subject
+    });
+
+    const options = {
+      hostname: 'api.web3forms.com',
+      port: 443,
+      path: '/submit',
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
+        'Content-Length': Buffer.byteLength(payload),
         'Accept': 'application/json'
-      },
-      body: JSON.stringify({
-        access_key,
-        name,
-        email,
-        message,
-        subject
-      })
+      }
+    };
+
+    const response = await new Promise((resolve, reject) => {
+      const postReq = https.request(options, (postRes) => {
+        let body = '';
+        postRes.on('data', (chunk) => {
+          body += chunk;
+        });
+        postRes.on('end', () => {
+          try {
+            resolve({
+              statusCode: postRes.statusCode,
+              body: JSON.parse(body)
+            });
+          } catch (e) {
+            resolve({
+              statusCode: postRes.statusCode,
+              body: { success: false, message: 'Invalid response from email service' }
+            });
+          }
+        });
+      });
+
+      postReq.on('error', (err) => {
+        reject(err);
+      });
+
+      postReq.write(payload);
+      postReq.end();
     });
 
-    const data = await response.json();
-    return res.status(response.status).json(data);
+    return res.status(response.statusCode).json(response.body);
   } catch (error) {
     return res.status(500).json({ success: false, message: error.message });
   }
