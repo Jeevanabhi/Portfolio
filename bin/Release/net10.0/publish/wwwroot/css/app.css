@@ -1,0 +1,201 @@
+:root {
+  --bg-color: #c2c2c2; /* ← change this one value to retheme the whole page */
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-color);
+  color: #202020;
+  min-height: 100vh;
+}
+
+/* Remove default focus outline on headings focused by FocusOnNavigate */
+h1:focus, h2:focus, h3:focus, h4:focus, h5:focus, h6:focus {
+  outline: none;
+}
+
+/* ===== Intro Overlay ===== */
+.intro-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  pointer-events: none;
+  /* Solid bg = any subpixel gap between tiles shows this, not the page */
+  background-color: #111111;
+}
+
+.intro-overlay.intro-done {
+  animation: overlayFadeOut 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* ===== 10 Vertical Column Tiles ===== */
+.grid-columns-layer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  z-index: 10000;
+  pointer-events: none;
+  gap: 0;
+}
+
+.intro-tile {
+  /* Extend tiles by 1px on each side to close any subpixel seams */
+  background-color: #111111;
+  height: 100vh;
+  width: calc(100% + 1px);
+  margin-left: -0.5px;
+  transform-origin: top center;
+  animation: tileSlideUp 0.9s cubic-bezier(0.76, 0, 0.24, 1) forwards;
+  animation-delay: calc(2.0s + (var(--tile-i) * 0.1s));
+}
+
+/* ===== Name Text ===== */
+#Intro {
+  color: rgb(220, 220, 220);
+  letter-spacing: 0.009em;
+  text-align: center;
+  position: relative;
+  z-index: 10001;
+  padding: 0 1rem;
+}
+
+#Intro h1 {
+  margin: 0;
+  font-size: 6em;
+  line-height: 1.1;
+  overflow: visible;
+  animation: textFadeOut 0.5s cubic-bezier(0.4, 0, 1, 1) forwards;
+  animation-delay: 1.8s;
+}
+
+/* Each name group: JEEVAN / ABHILASH — inline on desktop */
+.name-line {
+  display: inline-block;
+}
+
+/* Space between first and last name on desktop */
+.name-line + .name-line::before {
+  content: "\00a0"; /* non-breaking space */
+}
+
+/* Individual letter spans */
+.name-line > span {
+  display: inline-block;
+  opacity: 0;
+  animation: staggeredTextTransition 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  animation-delay: calc(var(--i) * 0.05s);
+}
+
+/* ===== Responsive — Smartphones (≤600px) ===== */
+@media (max-width: 600px) {
+  #Intro h1 {
+    font-size: 3em;
+  }
+
+  /* Stack names on separate lines */
+  .name-line {
+    display: block;
+  }
+
+  /* Remove the pseudo-space on mobile */
+  .name-line + .name-line::before {
+    content: none;
+  }
+
+  /* Fewer, wider tiles on mobile — less chance of visible seams */
+  .grid-columns-layer {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+/* ===== Responsive — Tablets (601px–900px) ===== */
+@media (min-width: 601px) and (max-width: 900px) {
+  #Intro h1 {
+    font-size: 4.5em;
+  }
+}
+
+/* ===== Keyframes ===== */
+
+@keyframes staggeredTextTransition {
+  from {
+    opacity: 0;
+    transform: translateY(100%) scale(0.85);
+    filter: blur(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0px);
+  }
+}
+
+@keyframes textFadeOut {
+  0% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-12%) scale(0.96);
+    filter: blur(6px);
+  }
+}
+
+@keyframes tileSlideUp {
+  0% {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+  15% {
+    transform: translateY(-2%);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-110%);
+    opacity: 0;
+  }
+}
+
+@keyframes overlayFadeOut {
+  from { opacity: 1; }
+  to   { opacity: 0; }
+}
+
+/* ===== Scroll-Driven Reveal Animations ===== */
+@supports (animation-timeline: view()) {
+  @keyframes revealOnScroll {
+    from {
+      opacity: 0;
+      transform: translateY(80px) scale(0.96);
+      filter: blur(4px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      filter: blur(0px);
+    }
+  }
+
+  .reveal-on-scroll {
+    animation: revealOnScroll linear both;
+    animation-timeline: view();
+    animation-range: entry 5% cover 28%;
+  }
+}

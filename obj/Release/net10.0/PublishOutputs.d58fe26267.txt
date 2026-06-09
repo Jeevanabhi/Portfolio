@@ -1,0 +1,5 @@
+J:\Blazor_Project\PortfolioWebsite\bin\Release\net10.0\publish\wwwroot\index.html
+J:\Blazor_Project\PortfolioWebsite\bin\Release\net10.0\publish\vercel.json
+J:\Blazor_Project\PortfolioWebsite\bin\Release\net10.0\publish\PortfolioWebsite.runtimeconfig.json
+J:\Blazor_Project\PortfolioWebsite\bin\Release\net10.0\publish\dotnet.js
+J:\Blazor_Project\PortfolioWebsite\bin\Release\net10.0\publish\web.config
