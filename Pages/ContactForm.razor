@@ -92,16 +92,34 @@
 
         try
         {
-            var payload = new
-            {
-                access_key = Configuration["EmailSettings:AccessKey"] ?? "YOUR_ACCESS_KEY_HERE",
-                name = contact.Name,
-                email = contact.Email,
-                message = contact.Message,
-                subject = "New Portfolio Contact Message"
-            };
+            var accessKey = Configuration["EmailSettings:AccessKey"];
+            HttpResponseMessage response;
 
-            var response = await Http.PostAsJsonAsync("https://api.web3forms.com/submit", payload);
+            if (!string.IsNullOrEmpty(accessKey) && accessKey != "ACCESS_KEY")
+            {
+                // Local development mode: Post directly to Web3Forms using the local key
+                var payload = new
+                {
+                    access_key = accessKey,
+                    name = contact.Name,
+                    email = contact.Email,
+                    message = contact.Message,
+                    subject = "New Portfolio Contact Message"
+                };
+                response = await Http.PostAsJsonAsync("https://api.web3forms.com/submit", payload);
+            }
+            else
+            {
+                // Production mode: Post to Vercel API proxy (keeps key hidden)
+                var payload = new
+                {
+                    name = contact.Name,
+                    email = contact.Email,
+                    message = contact.Message,
+                    subject = "New Portfolio Contact Message"
+                };
+                response = await Http.PostAsJsonAsync("api/submit", payload);
+            }
 
             if (response.IsSuccessStatusCode)
             {
