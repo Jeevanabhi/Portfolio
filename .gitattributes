@@ -1,0 +1,8 @@
+# Treat Blazor WebAssembly framework files as binary to prevent line ending conversion (which breaks integrity checks)
+**/_framework/**/*.js binary
+**/_framework/**/*.json binary
+**/_framework/**/*.dll binary
+**/_framework/**/*.wasm binary
+**/_framework/**/*.pdb binary
+**/_framework/**/*.gz binary
+**/_framework/**/*.br binary

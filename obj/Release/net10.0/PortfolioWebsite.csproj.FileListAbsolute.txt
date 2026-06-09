@@ -206,9 +206,6 @@ J:\Blazor_Project\PortfolioWebsite\bin\Release\net10.0\wwwroot\_framework\dotnet
 J:\Blazor_Project\PortfolioWebsite\bin\Release\net10.0\wwwroot\_framework\icudt_CJK.tjcz0u77k5.dat
 J:\Blazor_Project\PortfolioWebsite\bin\Release\net10.0\wwwroot\_framework\icudt_EFIGS.tptq2av103.dat
 J:\Blazor_Project\PortfolioWebsite\bin\Release\net10.0\wwwroot\_framework\icudt_no_CJK.lfu7j35m59.dat
-J:\Blazor_Project\PortfolioWebsite\bin\Release\net10.0\wwwroot\_framework\PortfolioWebsite.dwqvkq002y.wasm
-J:\Blazor_Project\PortfolioWebsite\bin\Release\net10.0\wwwroot\_framework\PortfolioWebsite.setel3xbae.pdb
-J:\Blazor_Project\PortfolioWebsite\bin\Release\net10.0\wwwroot\_framework\dotnet.cpzio082ca.js
 J:\Blazor_Project\PortfolioWebsite\bin\Release\net10.0\wwwroot\_framework\blazor.webassembly.66stpp682q.js.gz
 J:\Blazor_Project\PortfolioWebsite\bin\Release\net10.0\wwwroot\_framework\Microsoft.AspNetCore.Authorization.3ur142rhlk.wasm.gz
 J:\Blazor_Project\PortfolioWebsite\bin\Release\net10.0\wwwroot\_framework\Microsoft.AspNetCore.Components.ld1j2d23tn.wasm.gz
@@ -416,9 +413,6 @@ J:\Blazor_Project\PortfolioWebsite\bin\Release\net10.0\wwwroot\_framework\dotnet
 J:\Blazor_Project\PortfolioWebsite\bin\Release\net10.0\wwwroot\_framework\icudt_CJK.tjcz0u77k5.dat.gz
 J:\Blazor_Project\PortfolioWebsite\bin\Release\net10.0\wwwroot\_framework\icudt_EFIGS.tptq2av103.dat.gz
 J:\Blazor_Project\PortfolioWebsite\bin\Release\net10.0\wwwroot\_framework\icudt_no_CJK.lfu7j35m59.dat.gz
-J:\Blazor_Project\PortfolioWebsite\bin\Release\net10.0\wwwroot\_framework\PortfolioWebsite.dwqvkq002y.wasm.gz
-J:\Blazor_Project\PortfolioWebsite\bin\Release\net10.0\wwwroot\_framework\PortfolioWebsite.setel3xbae.pdb.gz
-J:\Blazor_Project\PortfolioWebsite\bin\Release\net10.0\wwwroot\_framework\dotnet.cpzio082ca.js.gz
 J:\Blazor_Project\PortfolioWebsite\bin\Release\net10.0\vercel.json
 J:\Blazor_Project\PortfolioWebsite\bin\Release\net10.0\PortfolioWebsite.staticwebassets.runtime.json
 J:\Blazor_Project\PortfolioWebsite\bin\Release\net10.0\PortfolioWebsite.staticwebassets.endpoints.json
@@ -899,7 +893,6 @@ J:\Blazor_Project\PortfolioWebsite\obj\Release\net10.0\compressed\emfuoo3rgm-{0}
 J:\Blazor_Project\PortfolioWebsite\obj\Release\net10.0\compressed\5tbkomtzal-{0}-z5ibco36ev-z5ibco36ev.gz
 J:\Blazor_Project\PortfolioWebsite\obj\Release\net10.0\compressed\2y0dng8tdi-{0}-63fj8s7r0e-63fj8s7r0e.gz
 J:\Blazor_Project\PortfolioWebsite\obj\Release\net10.0\compressed\i2s7c8mavq-{0}-fzlqkkwyyu-fzlqkkwyyu.gz
-J:\Blazor_Project\PortfolioWebsite\obj\Release\net10.0\compressed\7h3ovwbcpe-{0}-99xo75pbzr-99xo75pbzr.gz
 J:\Blazor_Project\PortfolioWebsite\obj\Release\net10.0\compressed\ecpfhcgsob-{0}-ygg2jssi4f-ygg2jssi4f.gz
 J:\Blazor_Project\PortfolioWebsite\obj\Release\net10.0\compressed\3yrifbi9f5-{0}-vc93i8xg8k-vc93i8xg8k.gz
 J:\Blazor_Project\PortfolioWebsite\obj\Release\net10.0\compressed\ma1euya29q-{0}-66stpp682q-66stpp682q.gz
@@ -1111,10 +1104,6 @@ J:\Blazor_Project\PortfolioWebsite\obj\Release\net10.0\compressed\w2ijehoyz6-{0}
 J:\Blazor_Project\PortfolioWebsite\obj\Release\net10.0\compressed\bugbunhxn4-{0}-tjcz0u77k5-tjcz0u77k5.gz
 J:\Blazor_Project\PortfolioWebsite\obj\Release\net10.0\compressed\u8qapettnp-{0}-tptq2av103-tptq2av103.gz
 J:\Blazor_Project\PortfolioWebsite\obj\Release\net10.0\compressed\hgmkco6qye-{0}-lfu7j35m59-lfu7j35m59.gz
-J:\Blazor_Project\PortfolioWebsite\obj\Release\net10.0\compressed\wrrcx3571x-{0}-dwqvkq002y-dwqvkq002y.gz
-J:\Blazor_Project\PortfolioWebsite\obj\Release\net10.0\compressed\2a4dasfjpk-{0}-setel3xbae-setel3xbae.gz
-J:\Blazor_Project\PortfolioWebsite\obj\Release\net10.0\compressed\tfkliez1ra-{0}-cpzio082ca-cpzio082ca.gz
-J:\Blazor_Project\PortfolioWebsite\obj\Release\net10.0\compressed\w1jx7ftuyc-{0}-t445fnynqp-t445fnynqp.gz
 J:\Blazor_Project\PortfolioWebsite\obj\Release\net10.0\staticwebassets.build.json
 J:\Blazor_Project\PortfolioWebsite\obj\Release\net10.0\staticwebassets.build.json.cache
 J:\Blazor_Project\PortfolioWebsite\obj\Release\net10.0\staticwebassets.development.json
@@ -1125,3 +1114,14 @@ J:\Blazor_Project\PortfolioWebsite\obj\Release\net10.0\PortfolioWebsite.dll
 J:\Blazor_Project\PortfolioWebsite\obj\Release\net10.0\refint\PortfolioWebsite.dll
 J:\Blazor_Project\PortfolioWebsite\obj\Release\net10.0\PortfolioWebsite.pdb
 J:\Blazor_Project\PortfolioWebsite\obj\Release\net10.0\ref\PortfolioWebsite.dll
+J:\Blazor_Project\PortfolioWebsite\bin\Release\net10.0\wwwroot\_framework\PortfolioWebsite.8ca7o9kr4d.wasm
+J:\Blazor_Project\PortfolioWebsite\bin\Release\net10.0\wwwroot\_framework\PortfolioWebsite.fbs7xo2ba1.pdb
+J:\Blazor_Project\PortfolioWebsite\bin\Release\net10.0\wwwroot\_framework\dotnet.8gi06nez67.js
+J:\Blazor_Project\PortfolioWebsite\bin\Release\net10.0\wwwroot\_framework\PortfolioWebsite.8ca7o9kr4d.wasm.gz
+J:\Blazor_Project\PortfolioWebsite\bin\Release\net10.0\wwwroot\_framework\PortfolioWebsite.fbs7xo2ba1.pdb.gz
+J:\Blazor_Project\PortfolioWebsite\bin\Release\net10.0\wwwroot\_framework\dotnet.8gi06nez67.js.gz
+J:\Blazor_Project\PortfolioWebsite\obj\Release\net10.0\compressed\7h3ovwbcpe-{0}-mxbrvyafe6-mxbrvyafe6.gz
+J:\Blazor_Project\PortfolioWebsite\obj\Release\net10.0\compressed\wrrcx3571x-{0}-8ca7o9kr4d-8ca7o9kr4d.gz
+J:\Blazor_Project\PortfolioWebsite\obj\Release\net10.0\compressed\2a4dasfjpk-{0}-fbs7xo2ba1-fbs7xo2ba1.gz
+J:\Blazor_Project\PortfolioWebsite\obj\Release\net10.0\compressed\tfkliez1ra-{0}-8gi06nez67-8gi06nez67.gz
+J:\Blazor_Project\PortfolioWebsite\obj\Release\net10.0\compressed\w1jx7ftuyc-{0}-b9fn0yl41h-b9fn0yl41h.gz
