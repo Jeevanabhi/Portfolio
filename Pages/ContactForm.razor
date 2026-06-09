@@ -93,33 +93,24 @@
         try
         {
             var accessKey = Configuration["EmailSettings:AccessKey"];
-            HttpResponseMessage response;
+            if (string.IsNullOrEmpty(accessKey) || accessKey == "ACCESS_KEY")
+            {
+                Console.WriteLine("Failed to send email. Error: Web3Forms Access Key is not configured.");
+                sending = false;
+                StateHasChanged();
+                return;
+            }
 
-            if (!string.IsNullOrEmpty(accessKey) && accessKey != "ACCESS_KEY")
+            var payload = new
             {
-                // Local development mode: Post directly to Web3Forms using the local key
-                var payload = new
-                {
-                    access_key = accessKey,
-                    name = contact.Name,
-                    email = contact.Email,
-                    message = contact.Message,
-                    subject = "New Portfolio Contact Message"
-                };
-                response = await Http.PostAsJsonAsync("https://api.web3forms.com/submit", payload);
-            }
-            else
-            {
-                // Production mode: Post to Vercel API proxy (keeps key hidden)
-                var payload = new
-                {
-                    name = contact.Name,
-                    email = contact.Email,
-                    message = contact.Message,
-                    subject = "New Portfolio Contact Message"
-                };
-                response = await Http.PostAsJsonAsync("api/submit", payload);
-            }
+                access_key = accessKey,
+                name = contact.Name,
+                email = contact.Email,
+                message = contact.Message,
+                subject = "New Portfolio Contact Message"
+            };
+
+            var response = await Http.PostAsJsonAsync("https://api.web3forms.com/submit", payload);
 
             if (response.IsSuccessStatusCode)
             {
@@ -128,7 +119,8 @@
             }
             else
             {
-                Console.WriteLine($"Failed to send email. Status code: {response.StatusCode}");
+                var errorBody = await response.Content.ReadAsStringAsync();
+                Console.WriteLine($"Failed to send email. Status code: {response.StatusCode}. Details: {errorBody}");
             }
         }
         catch (Exception ex)

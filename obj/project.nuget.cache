@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "XoTJJ27HJH0=",
+  "dgSpecHash": "oMydtdSEmSY=",
   "success": true,
   "projectFilePath": "J:\\Blazor_Project\\PortfolioWebsite\\PortfolioWebsite.csproj",
   "expectedPackageFiles": [
@@ -13,6 +13,7 @@
     "C:\\Users\\jeeva\\.nuget\\packages\\microsoft.aspnetcore.components.webassembly\\10.0.3\\microsoft.aspnetcore.components.webassembly.10.0.3.nupkg.sha512",
     "C:\\Users\\jeeva\\.nuget\\packages\\microsoft.aspnetcore.components.webassembly.devserver\\10.0.3\\microsoft.aspnetcore.components.webassembly.devserver.10.0.3.nupkg.sha512",
     "C:\\Users\\jeeva\\.nuget\\packages\\microsoft.aspnetcore.metadata\\10.0.3\\microsoft.aspnetcore.metadata.10.0.3.nupkg.sha512",
+    "C:\\Users\\jeeva\\.nuget\\packages\\microsoft.dotnet.hotreload.webassembly.browser\\10.0.103\\microsoft.dotnet.hotreload.webassembly.browser.10.0.103.nupkg.sha512",
     "C:\\Users\\jeeva\\.nuget\\packages\\microsoft.extensions.configuration\\10.0.3\\microsoft.extensions.configuration.10.0.3.nupkg.sha512",
     "C:\\Users\\jeeva\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\10.0.3\\microsoft.extensions.configuration.abstractions.10.0.3.nupkg.sha512",
     "C:\\Users\\jeeva\\.nuget\\packages\\microsoft.extensions.configuration.binder\\10.0.3\\microsoft.extensions.configuration.binder.10.0.3.nupkg.sha512",

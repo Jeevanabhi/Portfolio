@@ -13,7 +13,7 @@
   </ItemGroup>
 
   <Target Name="GenerateAppSettings" BeforeTargets="BeforeBuild">
-    <Exec Command="powershell -Command &quot;if (Test-Path .env) { $content = Get-Content .env; $keyLine = $content | Select-String -Pattern '^ACCESS_KEY=' | Select-Object -First 1; if ($keyLine) { $key = ($keyLine.ToString() -split '=', 2)[1].Trim(); $json = '{\&quot;EmailSettings\&quot;: {\&quot;AccessKey\&quot;: \&quot;' + $key + '\&quot;}}'; Set-Content -Path wwwroot/appsettings.Development.json -Value $json -Force } }&quot;" />
+    <Exec Command="powershell -Command &quot;if (Test-Path .env) { $content = Get-Content .env; $keyLine = $content | Select-String -Pattern '^ACCESS_KEY=' | Select-Object -First 1; if ($keyLine) { $key = ($keyLine.ToString() -split '=', 2)[1].Trim(); $json = '{\&quot;EmailSettings\&quot;: {\&quot;AccessKey\&quot;: \&quot;' + $key + '\&quot;}}'; Set-Content -Path wwwroot/appsettings.Development.json -Value $json -Force; Set-Content -Path wwwroot/appsettings.Production.json -Value $json -Force } }&quot;" />
   </Target>
 
 </Project>
