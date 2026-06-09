@@ -4,13 +4,10 @@
   "buildCommand": null,
   "outputDirectory": "bin/Release/net10.0/publish/wwwroot",
   "cleanUrls": true,
-  "routes": [
+  "rewrites": [
     {
-      "handle": "filesystem"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/index.html"
+      "source": "/(.*)",
+      "destination": "/index.html"
     }
   ]
 }
