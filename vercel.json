@@ -1,5 +1,8 @@
 {
+  "$schema": "https://openapi.vercel.sh/vercel.json",
   "version": 2,
+  "buildCommand": "dotnet publish -c Release",
+  "outputDirectory": "bin/Release/net10.0/publish/wwwroot",
   "cleanUrls": true,
   "routes": [
     {
