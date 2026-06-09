@@ -1,0 +1,87 @@
+@inherits LayoutComponentBase
+
+<div class="page">
+    <header class="topbar">
+        <NavMenu />
+    </header>
+
+    <main>
+        <article class="content px-4">
+            @Body
+        </article>
+    </main>
+</div>
+
+@* Intro overlay — renders on top of the page, then animates away *@
+@if (ShowIntro)
+{
+    <div class="intro-overlay @(FadeOut ? "intro-done" : "")">
+        <!-- 10 vertical column tiles -->
+        <div class="grid-columns-layer">
+            @for (int tile = 0; tile < 10; tile++)
+            {
+                <div class="intro-tile" style="--tile-i: @tile"></div>
+            }
+        </div>
+
+        <div id="Intro">
+            <h1 style="font-family: 'Anton SC', sans-serif;">
+                @{
+                    int index = 0;
+                    string firstName = "JEEVAN";
+                    string lastName = "ABHILASH";
+                }
+                <span class="name-line">
+                    @foreach (char letter in firstName)
+                    {
+                        <span style="--i: @index">@letter</span>
+                        index++;
+                    }
+                </span>
+                <span class="name-line">
+                    @foreach (char letter in lastName)
+                    {
+                        <span style="--i: @index">@letter</span>
+                        index++;
+                    }
+                </span>
+            </h1>
+        </div>
+    </div>
+}
+
+@code {
+    // Static flag — survives navigation (layout re-mounts) within the same session
+    private static bool _introShown = false;
+
+    private bool ShowIntro = false;
+    private bool FadeOut = false;
+
+    protected override void OnInitialized()
+    {
+        // Only show intro if it hasn't been shown yet this session
+        if (!_introShown)
+        {
+            ShowIntro = true;
+        }
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender && ShowIntro)
+        {
+            // Mark as shown immediately so navigating away mid-animation won't replay it
+            _introShown = true;
+
+            // Last tile: 2.0s + (9 × 0.1s) = 2.9s + 0.9s anim = ~3.8s total
+            await Task.Delay(4000);
+            FadeOut = true;
+            StateHasChanged();
+
+            // Wait for overlayFadeOut (0.6s) to finish, then remove from DOM
+            await Task.Delay(700);
+            ShowIntro = false;
+            StateHasChanged();
+        }
+    }
+}

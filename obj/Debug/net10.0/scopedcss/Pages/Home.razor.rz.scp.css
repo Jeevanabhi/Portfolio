@@ -1,0 +1,118 @@
+/* ===== Hero Container ===== */
+.hero-container[b-3ylt6ottft] {
+    max-width: 900px;
+    margin: 0 auto;
+    width: 100%;
+    padding: 6rem 2rem 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+/* ===== Title Text ===== */
+.hero-title[b-3ylt6ottft] {
+    font-family: 'Anton SC', 'Arial Black', sans-serif;
+    font-size: 6rem;
+    font-weight: 900;
+    line-height: 0.9;
+    margin: 0;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+}
+
+.hero-title-green[b-3ylt6ottft] {
+    color: rgba(16, 190, 106, 1);
+}
+
+.hero-title-white[b-3ylt6ottft] {
+    color: #e5e5e5;
+}
+
+/* ===== Subtitle / Bio ===== */
+.hero-subtitle[b-3ylt6ottft] {
+    font-size: 1.15rem;
+    color: #a0a0a0;
+    line-height: 1.6;
+    margin-top: 1.8rem;
+    margin-bottom: 2.2rem;
+    max-width: 580px;
+}
+
+.highlight-name[b-3ylt6ottft] {
+    color: #ffffff;
+    font-weight: 700;
+}
+
+/* ===== Let's Talk Button ===== */
+.hero-actions[b-3ylt6ottft] {
+    margin-bottom: 2rem;
+}
+
+.btn-talk[b-3ylt6ottft] {
+    display: inline-block;
+    background-color: rgba(16, 190, 106, 1);
+    color: #0a0a0a;
+    font-weight: 800;
+    font-size: 0.95rem;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    padding: 14px 28px;
+    border-radius: 4px;
+    transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+    box-shadow: 0 4px 14px rgba(16, 190, 106, 0.2);
+}
+
+.btn-talk:hover[b-3ylt6ottft] {
+    background-color: rgba(30, 220, 120, 1);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(16, 190, 106, 0.4);
+}
+
+.btn-talk:active[b-3ylt6ottft] {
+    transform: translateY(0);
+}
+
+/* ===== Status Indicator ===== */
+.hero-status[b-3ylt6ottft] {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.status-dot[b-3ylt6ottft] {
+    width: 8px;
+    height: 8px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+}
+
+.status-text[b-3ylt6ottft] {
+    font-size: 0.85rem;
+    color: #888;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+}
+
+/* ===== Responsive Styles ===== */
+@media (max-width: 600px) {
+    .hero-container[b-3ylt6ottft] {
+        padding: 4rem 1.5rem 2.5rem;
+    }
+
+    .hero-title[b-3ylt6ottft] {
+        font-size: 3.2rem;
+    }
+
+    .hero-subtitle[b-3ylt6ottft] {
+        font-size: 1.05rem;
+        margin-top: 1.4rem;
+        margin-bottom: 1.8rem;
+    }
+
+    .btn-talk[b-3ylt6ottft] {
+        padding: 12px 24px;
+        font-size: 0.9rem;
+    }
+
+}

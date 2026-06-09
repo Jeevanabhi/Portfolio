@@ -1,0 +1,131 @@
+@page "/contact"
+@inject HttpClient Http
+@inject Microsoft.Extensions.Configuration.IConfiguration Configuration
+
+<div id="contact" class="contact-page reveal-on-scroll">
+    <div class="contact-card">
+
+        <div class="contact-header">
+            <span class="contact-tag">GET IN TOUCH</span>
+            <h1 class="contact-title">Let's Work Together</h1>
+            <p class="contact-sub">Have a project in mind? Drop me a message and I'll get back to you.</p>
+            
+            <div class="social-links">
+                <a href="https://github.com/Jeevanabhi" target="_blank" class="social-btn github-btn" aria-label="GitHub">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="social-icon">
+                        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                    </svg>
+                    <span>GitHub</span>
+                </a>
+                <a href="https://www.linkedin.com/in/jeevanabhilash/" target="_blank" class="social-btn linkedin-btn" aria-label="LinkedIn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="social-icon">
+                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                        <rect x="2" y="9" width="4" height="12"></rect>
+                        <circle cx="4" cy="4" r="2"></circle>
+                    </svg>
+                    <span>LinkedIn</span>
+                </a>
+            </div>
+        </div>
+
+        <EditForm Model="contact" OnValidSubmit="SubmitForm" class="contact-form">
+            <DataAnnotationsValidator />
+
+            <div class="field-group">
+                <label class="field-label" for="name">Name</label>
+                <InputText id="name" @bind-Value="contact.Name" class="field-input" placeholder="Your full name" />
+                <ValidationMessage class="field-error" For="@(() => contact.Name)" />
+            </div>
+
+            <div class="field-group">
+                <label class="field-label" for="email">Email</label>
+                <InputText id="email" @bind-Value="contact.Email" class="field-input" placeholder="you@example.com" />
+                <ValidationMessage class="field-error" For="@(() => contact.Email)" />
+            </div>
+
+            <div class="field-group">
+                <label class="field-label" for="msg">Message</label>
+                <InputTextArea id="msg" @bind-Value="contact.Message" class="field-input field-textarea" placeholder="Tell me about your project..." />
+                <ValidationMessage class="field-error" For="@(() => contact.Message)" />
+            </div>
+
+            <button type="submit" class="send-btn @(sending ? "sending" : "")">
+                @if (sending)
+                {
+                    <span class="btn-spinner"></span>
+                    <span>Sending…</span>
+                }
+                else if (submitted)
+                {
+                    <span>✓ Sent!</span>
+                }
+                else
+                {
+                    <span>Send Message</span>
+                    <svg class="btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                }
+            </button>
+
+            @if (submitted)
+            {
+                <div class="success-banner">
+                    <span>Thanks! I'll get back to you as soon as possible.</span>
+                </div>
+            }
+        </EditForm>
+
+    </div>
+</div>
+
+@code {
+    private ContactDetails contact = new ContactDetails();
+    private bool submitted = false;
+    private bool sending = false;
+
+    private async Task SubmitForm()
+    {
+        sending = true;
+        submitted = false;
+        StateHasChanged();
+
+        try
+        {
+            var payload = new
+            {
+                access_key = Configuration["EmailSettings:AccessKey"] ?? "YOUR_ACCESS_KEY_HERE",
+                name = contact.Name,
+                email = contact.Email,
+                message = contact.Message,
+                subject = "New Portfolio Contact Message"
+            };
+
+            var response = await Http.PostAsJsonAsync("https://api.web3forms.com/submit", payload);
+
+            if (response.IsSuccessStatusCode)
+            {
+                submitted = true;
+                contact = new ContactDetails();
+            }
+            else
+            {
+                Console.WriteLine($"Failed to send email. Status code: {response.StatusCode}");
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error sending email: {ex.Message}");
+        }
+        finally
+        {
+            sending = false;
+            StateHasChanged();
+        }
+
+        // Hide success banner after 5s
+        await Task.Delay(5000);
+        submitted = false;
+        StateHasChanged();
+    }
+}

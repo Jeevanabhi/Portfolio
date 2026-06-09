@@ -1,0 +1,157 @@
+/* ===== Skills Section ===== */
+.skills-section {
+    padding: 5rem 2rem 3rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* ===== Header ===== */
+.skills-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.skills-tag {
+    display: inline-block;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    color: rgba(16, 190, 106, 1);
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+}
+
+.skills-title {
+    margin: 0 0 0.6rem;
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: rgba(218, 218, 218, 1);
+    font-family: 'Anton SC', 'Arial Black', sans-serif;
+    letter-spacing: 0.01em;
+}
+
+.skills-title .highlight {
+    color: rgba(16, 190, 106, 1);
+}
+
+.skills-sub {
+    margin: 0;
+    font-size: 0.95rem;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* ===== Grid ===== */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+    gap: 1.2rem;
+}
+
+/* ===== Skill Card ===== */
+.skill-card {
+    background: #141414;
+    border: 1px solid #2a2a2a;
+    border-radius: 16px;
+    padding: 1.5rem 1.2rem 1.2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.6rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    animation: cardIn 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.skill-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(16, 190, 106, 0.4);
+    box-shadow: 0 12px 32px rgba(16, 190, 106, 0.1);
+}
+
+/* ===== Icon ===== */
+.skill-icon {
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.skill-icon svg {
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+    min-height: 36px;
+    max-width: 36px;
+    max-height: 36px;
+    display: block;
+}
+
+/* ===== Name ===== */
+.skill-name {
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: rgba(218, 218, 218, 1);
+    letter-spacing: 0.03em;
+    text-align: center;
+}
+
+/* ===== Progress Bar ===== */
+.skill-bar-track {
+    width: 100%;
+    height: 5px;
+    background: #2a2a2a;
+    border-radius: 999px;
+    overflow: hidden;
+}
+
+.skill-bar-fill {
+    height: 100%;
+    width: var(--level);
+    background: linear-gradient(90deg, rgba(16, 190, 106, 0.7), rgba(16, 190, 106, 1));
+    border-radius: 999px;
+    animation: barGrow 1s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-delay: 0.3s;
+}
+
+@keyframes barGrow {
+    from { width: 0; }
+    to   { width: var(--level); }
+}
+
+/* ===== Level Label ===== */
+.skill-level {
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: rgba(16, 190, 106, 1);
+    letter-spacing: 0.05em;
+}
+
+/* ===== Card entrance animation ===== */
+@keyframes cardIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Stagger cards */
+.skill-card:nth-child(1) { animation-delay: 0.05s; }
+.skill-card:nth-child(2) { animation-delay: 0.10s; }
+.skill-card:nth-child(3) { animation-delay: 0.15s; }
+.skill-card:nth-child(4) { animation-delay: 0.20s; }
+.skill-card:nth-child(5) { animation-delay: 0.25s; }
+.skill-card:nth-child(6) { animation-delay: 0.30s; }
+.skill-card:nth-child(7) { animation-delay: 0.35s; }
+.skill-card:nth-child(8) { animation-delay: 0.40s; }
+
+/* ===== Responsive ===== */
+@media (max-width: 600px) {
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .skills-title {
+        font-size: 1.6rem;
+    }
+}

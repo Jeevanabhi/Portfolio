@@ -1,0 +1,18 @@
+.topbar[b-qij23b86of] {
+    background-color: transparent;
+}
+
+.page[b-qij23b86of] {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #0e0e0e;
+}
+
+main[b-qij23b86of] {
+    flex: 1;
+}
+
+.content[b-qij23b86of] {
+    padding: 20px;
+}
