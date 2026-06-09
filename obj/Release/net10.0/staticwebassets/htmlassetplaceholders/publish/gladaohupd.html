@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>PortfolioWebsite</title>
     <base href="/" />
-    <link href="_framework/dotnet.jpcjldoec3.js" rel="preload" as="script" fetchpriority="high" crossorigin="anonymous" integrity="sha256-F1BbVOTMASd8dFLDlYxoxk4iPUwVTXfodey8PITlxRU=" />
+    <link href="_framework/dotnet.93xpeg04hg.js" rel="preload" as="script" fetchpriority="high" crossorigin="anonymous" integrity="sha256-xYF9tNdc15Fn66bdoQGSEzwS4STl7DHI+d4Fdk3/1PI=" />
     <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/app.css" />
     <link href="PortfolioWebsite.styles.css" rel="stylesheet" />
@@ -18,7 +18,7 @@
     <script type="importmap">{
   "imports": {
     "./_framework/blazor.webassembly.js": "./_framework/blazor.webassembly.66stpp682q.js",
-    "./_framework/dotnet.js": "./_framework/dotnet.jpcjldoec3.js",
+    "./_framework/dotnet.js": "./_framework/dotnet.93xpeg04hg.js",
     "./_framework/dotnet.native.js": "./_framework/dotnet.native.69poregybn.js",
     "./_framework/dotnet.runtime.js": "./_framework/dotnet.runtime.q5rqv3xrhm.js"
   },
@@ -26,17 +26,63 @@
   "integrity": {
     "./_framework/blazor.webassembly.66stpp682q.js": "sha256-3lCWrko3zwspV40aQhs2S/IMkRSarnHRKIdkHhuXIBA=",
     "./_framework/blazor.webassembly.js": "sha256-3lCWrko3zwspV40aQhs2S/IMkRSarnHRKIdkHhuXIBA=",
-    "./_framework/dotnet.jpcjldoec3.js": "sha256-F1BbVOTMASd8dFLDlYxoxk4iPUwVTXfodey8PITlxRU=",
-    "./_framework/dotnet.js": "sha256-F1BbVOTMASd8dFLDlYxoxk4iPUwVTXfodey8PITlxRU=",
+    "./_framework/dotnet.93xpeg04hg.js": "sha256-xYF9tNdc15Fn66bdoQGSEzwS4STl7DHI+d4Fdk3/1PI=",
+    "./_framework/dotnet.js": "sha256-xYF9tNdc15Fn66bdoQGSEzwS4STl7DHI+d4Fdk3/1PI=",
     "./_framework/dotnet.native.69poregybn.js": "sha256-JvdIvkSF0x6euoPT2QnQSMg2Gyv2oJbFeBi1XmWLYFU=",
     "./_framework/dotnet.native.js": "sha256-JvdIvkSF0x6euoPT2QnQSMg2Gyv2oJbFeBi1XmWLYFU=",
     "./_framework/dotnet.runtime.js": "sha256-ArknccFM1sHNVcih0x1h52AG+abNCoQjl6BlVrv3ePw=",
     "./_framework/dotnet.runtime.q5rqv3xrhm.js": "sha256-ArknccFM1sHNVcih0x1h52AG+abNCoQjl6BlVrv3ePw="
   }
 }</script>
+    <style>
+      /* Inline loading styles to render immediately */
+      body {
+        background-color: #0e0e0e;
+        margin: 0;
+      }
+      .loading-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        width: 100vw;
+        background-color: #0e0e0e;
+        font-family: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      }
+      .loading-spinner {
+        width: 40px;
+        height: 40px;
+        border: 3px solid rgba(16, 190, 106, 0.15);
+        border-radius: 50%;
+        border-top-color: rgba(16, 190, 106, 1);
+        animation: spin 0.8s linear infinite;
+      }
+      .loading-text {
+        margin-top: 1.25rem;
+        color: #888888;
+        font-size: 0.78rem;
+        font-weight: 600;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        animation: pulse 1.5s ease-in-out infinite;
+      }
+      @keyframes spin {
+        to { transform: rotate(360deg); }
+      }
+      @keyframes pulse {
+        0%, 100% { opacity: 0.4; }
+        50% { opacity: 1; }
+      }
+    </style>
   </head>
   <body>
-    <div id="app"></div>
+    <div id="app">
+      <div class="loading-container">
+        <div class="loading-spinner"></div>
+        <div class="loading-text">Loading Portfolio</div>
+      </div>
+    </div>
     <script src="_framework/blazor.webassembly.66stpp682q.js"></script>
   </body>
 </html>
